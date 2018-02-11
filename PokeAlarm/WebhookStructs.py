@@ -80,6 +80,7 @@ class RocketMap:
             'weight': check_for_none(float, data.get('weight'), 'unkn'),
             'gender': get_pokemon_gender(check_for_none(int, data.get('gender'), '?')),
             'form_id': check_for_none(int, data.get('form'), '?'),
+            'weather': check_for_none(int, data.get('boosted_weather'), '?'),
             'size': 'unknown',
             'tiny_rat': '',
             'big_karp': '',
@@ -105,7 +106,8 @@ class RocketMap:
         # Todo: Remove this when monocle get's it's own standard
         if pkmn['form_id'] == 0:
             pkmn['form_id'] = '?'
-
+        if pkmn['weather'] == 0:
+            pkmn['weather'] = '?'
         return pkmn
 
     @staticmethod
